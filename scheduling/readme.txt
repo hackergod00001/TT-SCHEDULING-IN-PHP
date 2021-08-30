@@ -1,5 +1,3 @@
-Free Download Source Code "Online Class Scheduling and Examination"
-
 FIRST Download
 
 1.XAMPP
@@ -28,6 +26,3 @@ FIRST Download
 Admin
 user: admin
 pass: admin
-
-****** https://www.campcodes.com ******
-Subcribe to our Youtube Channel **** SerBermz ****
