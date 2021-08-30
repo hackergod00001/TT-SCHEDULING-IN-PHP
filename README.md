@@ -4,9 +4,9 @@ FIRST Download
 
 1.XAMPP
 
-2."TEXT EDITOR" NOTEPAD++ OR SUBLIME TEXT 3 / ETC.
+2."TEXT EDITOR" VISUAL STUDIO, etc.
 
-3"Scheduling PHP"
+3"TT-SCHEDULING-IN-PHP"
 
 4. Download the zip file/ download winrar
 
