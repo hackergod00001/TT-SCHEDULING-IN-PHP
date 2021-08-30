@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 18, 2017 at 07:15 AM
--- Server version: 10.1.22-MariaDB
--- PHP Version: 7.1.4
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 12, 2021 at 04:53 AM
+-- Server version: 8.0.26
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,10 +27,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `cys`
 --
 
-CREATE TABLE `cys` (
-  `cys_id` int(11) NOT NULL,
-  `cys` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `cys`;
+CREATE TABLE IF NOT EXISTS `cys` (
+  `cys_id` int NOT NULL AUTO_INCREMENT,
+  `cys` varchar(20) NOT NULL,
+  PRIMARY KEY (`cys_id`),
+  UNIQUE KEY `cys` (`cys`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cys`
@@ -48,11 +50,13 @@ INSERT INTO `cys` (`cys_id`, `cys`) VALUES
 -- Table structure for table `dept`
 --
 
-CREATE TABLE `dept` (
-  `dept_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `dept`;
+CREATE TABLE IF NOT EXISTS `dept` (
+  `dept_id` int NOT NULL AUTO_INCREMENT,
   `dept_code` varchar(10) NOT NULL,
-  `dept_name` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `dept_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`dept_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dept`
@@ -68,10 +72,12 @@ INSERT INTO `dept` (`dept_id`, `dept_code`, `dept_name`) VALUES
 -- Table structure for table `designation`
 --
 
-CREATE TABLE `designation` (
-  `designation_id` int(11) NOT NULL,
-  `designation_name` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `designation`;
+CREATE TABLE IF NOT EXISTS `designation` (
+  `designation_id` int NOT NULL AUTO_INCREMENT,
+  `designation_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`designation_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `designation`
@@ -87,19 +93,21 @@ INSERT INTO `designation` (`designation_id`, `designation_name`) VALUES
 -- Table structure for table `exam_sched`
 --
 
-CREATE TABLE `exam_sched` (
-  `sched_id` int(11) NOT NULL,
-  `time_id` int(1) NOT NULL,
+DROP TABLE IF EXISTS `exam_sched`;
+CREATE TABLE IF NOT EXISTS `exam_sched` (
+  `sched_id` int NOT NULL AUTO_INCREMENT,
+  `time_id` int NOT NULL,
   `day` varchar(50) NOT NULL,
-  `member_id` int(11) NOT NULL,
+  `member_id` int NOT NULL,
   `subject_code` varchar(50) NOT NULL,
   `cys` varchar(15) NOT NULL,
   `room` varchar(15) NOT NULL,
   `remarks` varchar(50) NOT NULL,
-  `settings_id` int(11) NOT NULL,
+  `settings_id` int NOT NULL,
   `cys1` varchar(10) NOT NULL,
   `term` varchar(10) NOT NULL,
-  `encoded_by` int(11) NOT NULL
+  `encoded_by` int NOT NULL,
+  PRIMARY KEY (`sched_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -108,19 +116,21 @@ CREATE TABLE `exam_sched` (
 -- Table structure for table `member`
 --
 
-CREATE TABLE `member` (
-  `member_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `member`;
+CREATE TABLE IF NOT EXISTS `member` (
+  `member_id` int NOT NULL AUTO_INCREMENT,
   `member_last` varchar(30) NOT NULL,
   `member_first` varchar(30) NOT NULL,
   `member_rank` varchar(50) NOT NULL,
   `member_salut` varchar(30) NOT NULL,
   `dept_code` varchar(10) NOT NULL,
-  `designation_id` int(11) NOT NULL,
+  `designation_id` int NOT NULL,
   `program_code` varchar(10) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `status` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`member_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=178 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `member`
@@ -136,11 +146,13 @@ INSERT INTO `member` (`member_id`, `member_last`, `member_first`, `member_rank`,
 -- Table structure for table `program`
 --
 
-CREATE TABLE `program` (
-  `prog_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `program`;
+CREATE TABLE IF NOT EXISTS `program` (
+  `prog_id` int NOT NULL AUTO_INCREMENT,
   `prog_code` varchar(10) NOT NULL,
-  `prog_title` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `prog_title` varchar(50) NOT NULL,
+  PRIMARY KEY (`prog_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `program`
@@ -157,10 +169,12 @@ INSERT INTO `program` (`prog_id`, `prog_code`, `prog_title`) VALUES
 -- Table structure for table `rank`
 --
 
-CREATE TABLE `rank` (
-  `rank_id` int(11) NOT NULL,
-  `rank` varchar(30) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `rank`;
+CREATE TABLE IF NOT EXISTS `rank` (
+  `rank_id` int NOT NULL AUTO_INCREMENT,
+  `rank` varchar(30) NOT NULL,
+  PRIMARY KEY (`rank_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `rank`
@@ -191,10 +205,12 @@ INSERT INTO `rank` (`rank_id`, `rank`) VALUES
 -- Table structure for table `room`
 --
 
-CREATE TABLE `room` (
-  `room_id` int(11) NOT NULL,
-  `room` varchar(15) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `room`;
+CREATE TABLE IF NOT EXISTS `room` (
+  `room_id` int NOT NULL AUTO_INCREMENT,
+  `room` varchar(15) NOT NULL,
+  PRIMARY KEY (`room_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `room`
@@ -211,10 +227,12 @@ INSERT INTO `room` (`room_id`, `room`) VALUES
 -- Table structure for table `salut`
 --
 
-CREATE TABLE `salut` (
-  `salut_id` int(11) NOT NULL,
-  `salut` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `salut`;
+CREATE TABLE IF NOT EXISTS `salut` (
+  `salut_id` int NOT NULL AUTO_INCREMENT,
+  `salut` varchar(10) NOT NULL,
+  PRIMARY KEY (`salut_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `salut`
@@ -234,18 +252,20 @@ INSERT INTO `salut` (`salut_id`, `salut`) VALUES
 -- Table structure for table `schedule`
 --
 
-CREATE TABLE `schedule` (
-  `sched_id` int(11) NOT NULL,
-  `time_id` int(1) NOT NULL,
+DROP TABLE IF EXISTS `schedule`;
+CREATE TABLE IF NOT EXISTS `schedule` (
+  `sched_id` int NOT NULL AUTO_INCREMENT,
+  `time_id` int NOT NULL,
   `day` varchar(50) NOT NULL,
-  `member_id` int(11) NOT NULL,
+  `member_id` int NOT NULL,
   `subject_code` varchar(50) NOT NULL,
   `cys` varchar(15) NOT NULL,
   `room` varchar(15) NOT NULL,
   `remarks` varchar(50) NOT NULL,
-  `settings_id` int(11) NOT NULL,
-  `encoded_by` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `settings_id` int NOT NULL,
+  `encoded_by` varchar(10) NOT NULL,
+  PRIMARY KEY (`sched_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedule`
@@ -267,13 +287,15 @@ INSERT INTO `schedule` (`sched_id`, `time_id`, `day`, `member_id`, `subject_code
 -- Table structure for table `settings`
 --
 
-CREATE TABLE `settings` (
-  `settings_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE IF NOT EXISTS `settings` (
+  `settings_id` int NOT NULL AUTO_INCREMENT,
   `term` varchar(10) NOT NULL,
   `sem` varchar(15) NOT NULL,
   `sy` varchar(10) NOT NULL,
-  `status` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`settings_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `settings`
@@ -288,11 +310,13 @@ INSERT INTO `settings` (`settings_id`, `term`, `sem`, `sy`, `status`) VALUES
 -- Table structure for table `signatories`
 --
 
-CREATE TABLE `signatories` (
-  `sign_id` int(11) NOT NULL,
-  `member_id` int(11) NOT NULL,
-  `seq` int(2) NOT NULL,
-  `set_by` int(11) NOT NULL
+DROP TABLE IF EXISTS `signatories`;
+CREATE TABLE IF NOT EXISTS `signatories` (
+  `sign_id` int NOT NULL AUTO_INCREMENT,
+  `member_id` int NOT NULL,
+  `seq` int NOT NULL,
+  `set_by` int NOT NULL,
+  PRIMARY KEY (`sign_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -301,12 +325,14 @@ CREATE TABLE `signatories` (
 -- Table structure for table `subject`
 --
 
-CREATE TABLE `subject` (
-  `subject_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `subject`;
+CREATE TABLE IF NOT EXISTS `subject` (
+  `subject_id` int NOT NULL AUTO_INCREMENT,
   `subject_code` varchar(15) NOT NULL,
   `subject_title` varchar(100) NOT NULL,
-  `member_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `member_id` int NOT NULL,
+  PRIMARY KEY (`subject_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subject`
@@ -324,10 +350,12 @@ INSERT INTO `subject` (`subject_id`, `subject_code`, `subject_title`, `member_id
 -- Table structure for table `sy`
 --
 
-CREATE TABLE `sy` (
-  `sy_id` int(11) NOT NULL,
-  `sy` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `sy`;
+CREATE TABLE IF NOT EXISTS `sy` (
+  `sy_id` int NOT NULL AUTO_INCREMENT,
+  `sy` varchar(10) NOT NULL,
+  PRIMARY KEY (`sy_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sy`
@@ -342,12 +370,14 @@ INSERT INTO `sy` (`sy_id`, `sy`) VALUES
 -- Table structure for table `time`
 --
 
-CREATE TABLE `time` (
-  `time_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `time`;
+CREATE TABLE IF NOT EXISTS `time` (
+  `time_id` int NOT NULL AUTO_INCREMENT,
   `time_start` time NOT NULL,
   `time_end` time NOT NULL,
-  `days` varchar(15) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `days` varchar(15) NOT NULL,
+  PRIMARY KEY (`time_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `time`
@@ -391,14 +421,16 @@ INSERT INTO `time` (`time_id`, `time_start`, `time_end`, `days`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(15) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `status` varchar(10) NOT NULL,
-  `program` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `program` varchar(10) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -406,192 +438,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `status`, `program`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'active', 'all');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cys`
---
-ALTER TABLE `cys`
-  ADD PRIMARY KEY (`cys_id`),
-  ADD UNIQUE KEY `cys` (`cys`);
-
---
--- Indexes for table `dept`
---
-ALTER TABLE `dept`
-  ADD PRIMARY KEY (`dept_id`);
-
---
--- Indexes for table `designation`
---
-ALTER TABLE `designation`
-  ADD PRIMARY KEY (`designation_id`);
-
---
--- Indexes for table `exam_sched`
---
-ALTER TABLE `exam_sched`
-  ADD PRIMARY KEY (`sched_id`);
-
---
--- Indexes for table `member`
---
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`member_id`);
-
---
--- Indexes for table `program`
---
-ALTER TABLE `program`
-  ADD PRIMARY KEY (`prog_id`);
-
---
--- Indexes for table `rank`
---
-ALTER TABLE `rank`
-  ADD PRIMARY KEY (`rank_id`);
-
---
--- Indexes for table `room`
---
-ALTER TABLE `room`
-  ADD PRIMARY KEY (`room_id`);
-
---
--- Indexes for table `salut`
---
-ALTER TABLE `salut`
-  ADD PRIMARY KEY (`salut_id`);
-
---
--- Indexes for table `schedule`
---
-ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`sched_id`);
-
---
--- Indexes for table `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`settings_id`);
-
---
--- Indexes for table `signatories`
---
-ALTER TABLE `signatories`
-  ADD PRIMARY KEY (`sign_id`);
-
---
--- Indexes for table `subject`
---
-ALTER TABLE `subject`
-  ADD PRIMARY KEY (`subject_id`);
-
---
--- Indexes for table `sy`
---
-ALTER TABLE `sy`
-  ADD PRIMARY KEY (`sy_id`);
-
---
--- Indexes for table `time`
---
-ALTER TABLE `time`
-  ADD PRIMARY KEY (`time_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cys`
---
-ALTER TABLE `cys`
-  MODIFY `cys_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `dept`
---
-ALTER TABLE `dept`
-  MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `designation`
---
-ALTER TABLE `designation`
-  MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
---
--- AUTO_INCREMENT for table `exam_sched`
---
-ALTER TABLE `exam_sched`
-  MODIFY `sched_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `member`
---
-ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
---
--- AUTO_INCREMENT for table `program`
---
-ALTER TABLE `program`
-  MODIFY `prog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `rank`
---
-ALTER TABLE `rank`
-  MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
---
--- AUTO_INCREMENT for table `room`
---
-ALTER TABLE `room`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `salut`
---
-ALTER TABLE `salut`
-  MODIFY `salut_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `schedule`
---
-ALTER TABLE `schedule`
-  MODIFY `sched_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `settings_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `signatories`
---
-ALTER TABLE `signatories`
-  MODIFY `sign_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `sy`
---
-ALTER TABLE `sy`
-  MODIFY `sy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `time`
---
-ALTER TABLE `time`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
