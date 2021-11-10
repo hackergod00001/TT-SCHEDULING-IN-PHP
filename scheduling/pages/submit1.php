@@ -119,7 +119,7 @@ include('../dist/includes/dbcon.php');
 		if ($count==0)
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,teacher_id,subject_code,cys,room,remarks) 
-				VALUES('$dayf','f','$teacher','$subject','$cys','$room','$remarks')")or die(mysqli_error());
+				VALUES('$dayf','f','$teacher','$subject','$cys','$room','$remarks')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>$timet $teachert $cys at room $room every friday successfully added!</span><br>";	
 		}			
@@ -154,7 +154,7 @@ include('../dist/includes/dbcon.php');
 		if ($count==0)
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,teacher_id,subject_code,cys,room,remarks) 
-				VALUES('$dayt','t','$teacher','$subject','$cys','$room','$remarks')")or die(mysqli_error());
+				VALUES('$dayt','t','$teacher','$subject','$cys','$room','$remarks')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>$timet $teachert $cys at room $room every tuesday successfully added!</span><br>";	
 		}			
@@ -189,7 +189,7 @@ include('../dist/includes/dbcon.php');
 		if ($count==0)
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,teacher_id,subject_code,cys,room,remarks) 
-				VALUES('$dayth','th','$teacher','$subject','$cys','$room','$remarks')")or die(mysqli_error());
+				VALUES('$dayth','th','$teacher','$subject','$cys','$room','$remarks')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>$timet $teachert $cys at room $room every thursday successfully added!</span><br>";	
 		}			
