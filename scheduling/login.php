@@ -30,7 +30,7 @@ $query=mysqli_query($con,"select * from member where username='$user' and passwo
 	  else
 		  {
 
-	  	$query=mysqli_query($con,"select * from settings where status='active'")or die(mysqli_error());
+	  	$query=mysqli_query($con,"select * from settings where status='active'")or die(mysqli_error($con));
 		$row=mysqli_fetch_array($query);		
 	
 		$_SESSION['settings']=$row['settings_id'];
