@@ -93,7 +93,7 @@ include('../dist/includes/dbcon.php');
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,member_id,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','m','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+				VALUES('$daym','m','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -183,7 +183,7 @@ include('../dist/includes/dbcon.php');
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,member_id,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','w','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+				VALUES('$daym','w','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -274,7 +274,7 @@ include('../dist/includes/dbcon.php');
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,member_id,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','f','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+				VALUES('$daym','f','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -455,7 +455,7 @@ include('../dist/includes/dbcon.php');
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
 			mysqli_query($con,"INSERT INTO schedule(time_id,day,member_id,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','th','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+				VALUES('$daym','th','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
