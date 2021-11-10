@@ -141,9 +141,9 @@ endif;
 						  <form method="post" action="subject_update.php">
 						  <div class="form-group">
 							<label for="date">Update Subject</label><br>
-                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $_REQUEST['id'];?>">
-								<input type="text" class="form-control" id="code" name="code" value="<?php echo $_REQUEST['code'];?>" placeholder="Subject Code">
-								<input type="text" class="form-control" id="class" name="title" value="<?php echo $_REQUEST['title'];?>" placeholder="Subject Title" required>
+                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $id;?>">
+								<input type="text" class="form-control" id="code" name="code" value="<?php echo $code;?>" placeholder="Subject Code">
+								<input type="text" class="form-control" id="class" name="title" value="<?php echo $title;?>" placeholder="Subject Title" required>
 						  </div><!-- /.form group -->
 					</div>
 				  </div>	
