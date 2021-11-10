@@ -28,3 +28,8 @@ FIRST Download
 Admin
 user: admin
 pass: admin
+
+
+### Documentation for the above scheduling system link is given below:
+https://docs.google.com/document/d/1Q5klNvA_c2cgMloA2VZWOv1S5c8g_9rJzIK0Mkr-DmQ/edit?usp=sharing
+
