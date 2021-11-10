@@ -58,7 +58,7 @@ endif;
         //session_start();
         $member=$_SESSION['id'];
         include('../dist/includes/dbcon.php');
-        $query=mysqli_query($con,"select * from subject order by subject_code")or die(mysqli_error());
+        $query=mysqli_query($con,"select * from subject order by subject_code")or die(mysqli_error($con));
           
           while($row=mysqli_fetch_array($query)){
             $id=$row['subject_id'];
